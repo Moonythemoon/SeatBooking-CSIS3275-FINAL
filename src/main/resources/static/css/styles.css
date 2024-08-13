@@ -1,0 +1,108 @@
+body {
+    background-color: #589258;
+    color: white;
+}
+
+h1, p {
+    color: yellow;
+    text-align: center;
+}
+
+.seat-table, .transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.seat-table td, .seat-table th, .transaction-table td, .transaction-table th {
+    border: 1px solid white;
+    padding: 8px;
+    text-align: center;
+}
+
+.reserve-button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+}
+
+.transaction-table {
+    background-color: #000000;
+    color: white;
+}
+
+.form-inline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-inline input {
+    width: 30%;
+    margin-right: 10px;
+}
+
+.edit-link {
+    color: white;
+    background-color:  #589258;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.edit-link:hover {
+    background-color:  #589258;
+}
+
+.delete-link {
+    color: white;
+    background-color: red;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.delete-link:hover {
+    background-color: darkred;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.save-button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background-color: darkblue;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: yellow;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

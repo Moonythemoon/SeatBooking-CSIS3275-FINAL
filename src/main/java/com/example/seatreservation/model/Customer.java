@@ -13,7 +13,7 @@ public class Customer {
     private Long id;
     private String name;
     private String seatno;
-    private LocalDate tdate;  // Changed to LocalDate
+    private LocalDate tdate;
 
     // Getters and Setters
     public Long getId() {
