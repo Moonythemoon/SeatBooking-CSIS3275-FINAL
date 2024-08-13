@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Seat Reservation System</title>
+    <style>
+        body {
+            background-color: #589258;
+            color: white;
+        }
+        h1, p {
+            color: yellow;
+            text-align: center;
+        }
+        .seat-table, .transaction-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .seat-table td, .seat-table th, .transaction-table td, .transaction-table th {
+            border: 1px solid white;
+            padding: 8px;
+            text-align: center;
+        }
+        .reserve-button {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .transaction-table {
+            background-color: #000000;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>Seat Reservation System</h1>
+
+
+<!-- Seat Layout Table -->
+<table class="seat-table">
+    <tr>
+        <th>1A</th><th>1B</th><th>1C</th><th>1D</th><th>1E</th>
+    </tr>
+    <tr>
+        <th>2A</th><th>2B</th><th>2C</th><th>2D</th><th>2E</th>
+    </tr>
+    <tr>
+        <th>3A</th><th>3B</th><th>3C</th><th>3D</th><th>3E</th>
+    </tr>
+    <tr>
+        <th>4A</th><th>4B</th><th>4C</th><th>4D</th><th>4E</th>
+    </tr>
+</table>
+
+<h1>There are <span th:text="${remainingSeats}">20</span> remaining seats</h1>
+<!-- Reservation Form -->
+<form th:action="@{/reserve}" id="reservationForm" method="post">
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <label for="seatno">Seat code:</label>
+        <input type="text" id="seatno" name="seatno" placeholder="e.g., 1A" style="flex: 1;"/>
+
+        <label for="name">Customer Name:</label>
+        <input type="text" id="name" name="name" style="flex: 1;"/>
+    </div>
+    <div style="margin-top: 10px; text-align: center;" >
+    <label for="tdate">Transaction Date:</label>
+    <input type="date" id="tdate" name="tdate" style="flex: 1;"/>
+    </div>
+    <div style="margin-top: 10px; text-align: center;">
+        <button type="submit" class="reserve-button" style="background-color: blue; color: white;">Reserve</button>
+    </div>
+</form>
+
+
+
+
+<!-- Display Error Messages -->
+<p th:text="${error}" th:if="${error}"></p>
+
+<!-- Transaction Table -->
+<h2>Transactions</h2>
+<table class="transaction-table">
+    <tr>
+        <th>Transaction Code</th>
+        <th>Date</th>
+        <th>Seat Number</th>
+        <th>Customer Name</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="customer : ${customers}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.tdate}"></td>
+        <td th:text="${customer.seatno}"></td>
+        <td th:text="${customer.name}"></td>
+        <td>
+            <a th:href="@{/edit/{id}(id=${customer.id})}">Edit</a>
+            <a th:href="@{/delete/{id}(id=${customer.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
